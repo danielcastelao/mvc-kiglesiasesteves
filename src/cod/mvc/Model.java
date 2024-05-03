@@ -23,4 +23,16 @@ public class Model {
         }
         return null;
     }
+
+
+    public Coche CambiarVelocidad(String matricula, int nuevaVelocidad){
+
+        for (Coche coche : parking) {
+            if (coche.matricula.equals(matricula)) {
+                coche.velocidad = nuevaVelocidad;
+                return coche;
+            }
+        }
+        return null;
+    }
 }
