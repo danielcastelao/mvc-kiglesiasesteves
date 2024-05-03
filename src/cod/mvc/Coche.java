@@ -1,8 +1,8 @@
 package cod.mvc;
 
 public class Coche {
-    String matricula;
-    String modelo;
-    int velocidad;
+    public String matricula;
+    public String modelo;
+    public int velocidad;
 
 }
