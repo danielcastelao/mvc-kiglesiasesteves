@@ -35,4 +35,12 @@ public class Model {
         }
         return null;
     }
+    public int getVelocidad(String matricula){
+        for (Coche coche : parking) {
+            if (coche.matricula.equals(matricula)) {
+                return coche.velocidad;
+            }
+        }
+        return -1;
+    }
 }
