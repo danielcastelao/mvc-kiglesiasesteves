@@ -13,4 +13,14 @@ public class Model {
         parking.add(coche);
         return coche;
     }
+
+    public Coche getCoche(String matricula) {
+        for (Coche coche : parking) {
+            if (coche.matricula.equals(matricula)) {
+                return coche;
+            }
+            return null;
+        }
+        return null;
+    }
 }
