@@ -3,9 +3,9 @@ package cod.mvc;
 import java.util.ArrayList;
 
 public class Model {
-    ArrayList<Coche> parking = new ArrayList<Coche>();
+    static ArrayList<Coche> parking = new ArrayList<Coche>();
 
-    public Coche CrearCoche(String matricula, String modelo, int velocidad){
+    public static Coche CrearCoche(String matricula, String modelo, int velocidad){
         Coche coche = new Coche();
         coche.matricula = matricula;
         coche.modelo = modelo;
@@ -14,7 +14,7 @@ public class Model {
         return coche;
     }
 
-    public Coche getCoche(String matricula) {
+    public static Coche getCoche(String matricula) {
         for (Coche coche : parking) {
             if (coche.matricula.equals(matricula)) {
                 return coche;
@@ -25,7 +25,7 @@ public class Model {
     }
 
 
-    public Coche CambiarVelocidad(String matricula, int nuevaVelocidad){
+    public static Coche CambiarVelocidad(String matricula, int nuevaVelocidad){
 
         for (Coche coche : parking) {
             if (coche.matricula.equals(matricula)) {
@@ -35,7 +35,7 @@ public class Model {
         }
         return null;
     }
-    public int getVelocidad(String matricula){
+    public static  int getVelocidad(String matricula){
         for (Coche coche : parking) {
             if (coche.matricula.equals(matricula)) {
                 return coche.velocidad;
