@@ -1,15 +1,17 @@
 package cod.mvc;
 
-import static cod.mvc.Model.CambiarVelocidad;
-import static cod.mvc.Model.getVelocidad;
+/**
+ * Clase que muestra la velocidad de un coche
+ */
 
 public class View {
-
-    public static int  muestraVelocidad(String matricula, int velocidad){
-
-        CambiarVelocidad(matricula,velocidad);
-        return getVelocidad(matricula);
-
-
+    /**
+     * Muestra la velocidad de un coche
+     *
+     * @param matricula Matrícula del coche
+     * @param velocidad Velocidad del coche
+     */
+    public static void muestraVelocidad(String matricula, int velocidad) {
+        System.out.println("The speed of car " + matricula + " is " + velocidad);
     }
 }
