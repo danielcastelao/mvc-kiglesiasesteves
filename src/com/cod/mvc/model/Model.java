@@ -26,7 +26,7 @@ public class Model implements Observable {
      * @param coche
      */
     @Override
-    public void notifyObservers(Coche coche) {
+    public  void notifyObservers(Coche coche) {
         for (Observer observer : observers) {
             observer.update(coche);
         }
@@ -64,10 +64,12 @@ public class Model implements Observable {
      * @param matricula Matrícula del coche
      * @param velocidad Nueva velocidad
      */
-    public static void cambiarVelocidad(String matricula, int velocidad) {
+    public void cambiarVelocidad(String matricula, int velocidad) {
         Coche coche = getCoche(matricula);
         if (coche != null) {
             coche.setVelocidad(velocidad);
+            notifyObservers(getCoche(matricula));
+
         }
     }
 
