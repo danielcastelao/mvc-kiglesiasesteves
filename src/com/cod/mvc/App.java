@@ -1,7 +1,7 @@
-package cod.mvc;
+package com.cod.mvc;
 
-import static cod.mvc.Model.crearCoche;
-import static cod.mvc.View.muestraVelocidad;
+import static com.cod.mvc.model.Model.crearCoche;
+import static com.cod.mvc.view.View.muestraVelocidad;
 
 public class App {
     public static void main(String[] args) {

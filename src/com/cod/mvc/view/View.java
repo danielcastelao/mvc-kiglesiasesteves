@@ -1,4 +1,4 @@
-package cod.mvc;
+package com.cod.mvc.view;
 
 /**
  * Clase que muestra la velocidad de un coche
