@@ -14,15 +14,9 @@ public class ObsVelocidad  implements Observer {
      */
     @Override
     public void update(Coche arg) {
-        System.out.println("Se ha cambiado la velocidad: " + String.valueOf(arg.velocidad));
+        System.out.println("[ObserverVelocidad] Se ha cambiado la velocidad: " + arg.velocidad + "km/hr");
         // le comunicamos a la vista que muestre la velocidad
-        View.muestraVelocidad(arg.getMatricula(), arg.getVelocidad());
+        View.muestraVelocidad(arg.matricula, arg.velocidad);
 
-        // Si la velocidad es mayor que 120, reducimos la velocidad en 10
-        if (arg.getVelocidad() > 120) {
-            int nuevaVelocidad = arg.getVelocidad() - 10;
-            arg.setVelocidad(nuevaVelocidad);
-            System.out.println("La velocidad es mayor que 120, se ha reducido a: " + nuevaVelocidad);
-        }
     }
 }
