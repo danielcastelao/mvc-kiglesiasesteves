@@ -1,11 +1,29 @@
 package com.cod.mvc;
 
-import static com.cod.mvc.model.Model.crearCoche;
-import static com.cod.mvc.view.View.muestraVelocidad;
+import com.cod.mvc.controller.Controller;
+import com.cod.mvc.model.Model;
 
 public class App {
+
     public static void main(String[] args) {
-        crearCoche("67JUzf", "HUnday", 345);
-        muestraVelocidad("67JUzf", 345);
+        // Inicializamos la app
+        // instanciamos el modelo
+        Model miModel = new Model();
+        // instanciamos el controlador
+        // le pasamos el Model instanciado
+        Controller miController = new Controller(miModel);
+
+        // Crear tres coches
+        miController.crearCoche("LaFerrari", "SBC 1234");
+        miController.crearCoche("Alpine", "HYU 4567");
+        miController.crearCoche("Aston Martin", "FGH 3333");
+
+        // Cambiar la velocidad de un coche
+        miController.cambiarVelocidad("SBC 1234", 30);
+
+        // otro cambio de velocidad
+        // sobrepasando la velocidad máxima
+        miController.cambiarVelocidad("HYU 4567", 150);
+
     }
 }

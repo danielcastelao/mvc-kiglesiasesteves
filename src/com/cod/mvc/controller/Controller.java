@@ -24,23 +24,23 @@ public class Controller {
             miModel.addObserver(observoLimite);
         }
 
-        /**
-         * Crea un coche
-         * @param nombre del coche
-         * @param matricula del coche
-         */
-        public void crearCoche(String nombre, String matricula,int velocidad){
-            miModel.crearCoche(nombre, matricula,velocidad);
-        }
+    /**
+     * Crea un coche
+     * @param nombre del coche
+     * @param matricula del coche
+     */
+    public void crearCoche(String nombre, String matricula){
+        miModel.crearCoche(nombre, matricula);
+    }
 
-        /**
-         * Cambia la velocidad de un coche
-         * @param matricula del coche
-         * @param velocidad nueva
-         */
-        public void cambiarVelocidad(String matricula, Integer velocidad){
-            miModel.cambiarVelocidad(matricula, velocidad);
-        }
+    /**
+     * Cambia la velocidad de un coche
+     * @param matricula del coche
+     * @param velocidad nueva
+     */
+    public void cambiarVelocidad(String matricula, Integer velocidad){
+        miModel.cambiarVelocidad(matricula, velocidad);
+    }
 
 
 

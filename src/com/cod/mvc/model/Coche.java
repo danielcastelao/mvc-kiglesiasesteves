@@ -5,6 +5,12 @@ public class Coche {
     public String modelo;
     public int velocidad;
 
+public Coche(String modelo, String matricula) {
+        this.modelo = modelo;
+        this.matricula = matricula;
+        this.velocidad = 0;
+    }
+
     public Coche(String matricula, String modelo, int velocidad) {
 
     }

@@ -36,11 +36,11 @@ public class Model implements Observable {
      *
      * @param matricula Matrícula del coche
      * @param modelo    Modelo del coche
-     * @param velocidad Velocidad del coche
      */
-    public static void crearCoche(String matricula, String modelo, int velocidad) {
-        Coche coche = new Coche(matricula, modelo, velocidad);
-        parking.add(coche);
+    public Coche crearCoche(String modelo, String matricula){
+        Coche aux = new Coche(modelo, matricula);
+        parking.add(aux);
+        return aux;
     }
 
     /**
