@@ -1,14 +1,36 @@
 package com.cod.mvc.model;
 
+import com.cod.mvc.controller.Observer;
+
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements Observable {
 
     /**
      * Lista de coches en el parking
      */
     private static ArrayList<Coche> parking = new ArrayList<>();
 
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    /**
+     * Notifica a los observadores
+     * Se ejecutará el método update() de cada observador
+     * @param coche
+     */
+    @Override
+    public void notifyObservers(Coche coche) {
+        for (Observer observer : observers) {
+            observer.update(coche);
+        }
+    }
     /**
      * Crea un coche y lo añade al parking
      *
