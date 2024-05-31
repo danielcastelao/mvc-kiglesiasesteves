@@ -24,6 +24,10 @@ public class Controller {
         // instanciamos un segundo observador para el límite de velocidad
         ObserverLimite observoLimite = new ObserverLimite();
         miModel.addObserver(observoLimite);
+
+        // instanciamos un tercer observador para buscar por matrícula
+        ObsCoche observoCoche=new ObsCoche();
+        miModel.setObsCoche(observoCoche);
     }
 
     /**
@@ -34,6 +38,7 @@ public class Controller {
      */
     public void crearCoche(String nombre, String matricula) {
         miModel.crearCoche(nombre, matricula);
+
     }
 
     /**
@@ -56,7 +61,9 @@ public class Controller {
     public Coche buscarPorMatricula(String matricula) {
         Coche coche = Model.getCoche(matricula);
         if (coche != null) {
-            miModel.notifyObservers(coche);
+            miModel.notifyObsCoche(coche);
+        } else {
+            System.out.println("No se ha encontrado un coche con esas característica");
         }
         return coche;
     }

@@ -1,10 +1,14 @@
 package com.cod.mvc.model;
 
+import com.cod.mvc.controller.ObsCoche;
+import com.cod.mvc.controller.ObsVelocidad;
 import com.cod.mvc.controller.Observer;
+import com.cod.mvc.controller.ObserverLimite;
 
 import java.util.ArrayList;
 
 public class Model implements Observable {
+    private ObsCoche obsCoche;
 
     /**
      * Lista de coches en el parking
@@ -15,6 +19,7 @@ public class Model implements Observable {
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
+
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
@@ -23,21 +28,23 @@ public class Model implements Observable {
     /**
      * Notifica a los observadores
      * Se ejecutará el método update() de cada observador
+     *
      * @param coche
      */
     @Override
-    public  void notifyObservers(Coche coche) {
+    public void notifyObservers(Coche coche) {
         for (Observer observer : observers) {
             observer.update(coche);
         }
     }
+
     /**
      * Crea un coche y lo añade al parking
      *
      * @param matricula Matrícula del coche
      * @param modelo    Modelo del coche
      */
-    public Coche crearCoche(String modelo, String matricula){
+    public Coche crearCoche(String modelo, String matricula) {
         Coche aux = Coche.getInstance(modelo, matricula);
         parking.add(aux);
         return aux;
@@ -86,5 +93,14 @@ public class Model implements Observable {
         }
         return -1;
     }
+    public void setObsCoche(ObsCoche obsCoche) {
+        this.obsCoche = obsCoche;
+    }
+    public void notifyObsCoche(Coche coche) {
+        if (obsCoche != null) {
+            obsCoche.update(coche);
+        }
+    }
+        }
 
-}
+

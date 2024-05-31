@@ -18,12 +18,12 @@ public class App {
         miController.crearCoche("Alpine", "HYU 4567");
         miController.crearCoche("Aston Martin", "FGH 3333");
 
+        miController.buscarPorMatricula("SBC 1234");
+
         // Cambiar la velocidad de un coche
         miController.cambiarVelocidad("SBC 1234", 30);
 
-        // otro cambio de velocidad
-        // sobrepasando la velocidad máxima
-        miController.cambiarVelocidad("HYU 4567", 150);
+
 
     }
 }

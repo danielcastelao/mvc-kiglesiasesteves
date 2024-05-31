@@ -14,7 +14,7 @@ public class View {
      * @param velocidad Velocidad del coche
      */
     public static void muestraVelocidad(String matricula, int velocidad) {
-        System.out.println("The speed of car " + matricula + " is " + velocidad);
+        System.out.println("La velocidad del coche con " + matricula + " es " + velocidad);
     }
     public static void muestraTodosDatos(Coche coche){
         System.out.println("Matrícula: " + coche.getMatricula());
