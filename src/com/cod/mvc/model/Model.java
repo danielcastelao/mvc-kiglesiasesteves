@@ -38,7 +38,7 @@ public class Model implements Observable {
      * @param modelo    Modelo del coche
      */
     public Coche crearCoche(String modelo, String matricula){
-        Coche aux = new Coche(modelo, matricula);
+        Coche aux = Coche.getInstance(modelo, matricula);
         parking.add(aux);
         return aux;
     }
