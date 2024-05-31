@@ -20,7 +20,6 @@ public class Controller {
         // instanciamos al observador de la velocidad
         ObsVelocidad observoVelocidad = new ObsVelocidad();
         miModel.addObserver(observoVelocidad);
-
         // instanciamos un segundo observador para el límite de velocidad
         ObserverLimite observoLimite = new ObserverLimite();
         miModel.addObserver(observoLimite);
