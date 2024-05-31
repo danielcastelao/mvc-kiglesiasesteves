@@ -1,49 +1,67 @@
 package com.cod.mvc.controller;
 
+import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 
 public class Controller {
 
-        // definimos la instancia del modelo
-        private final Model miModel;
+    // definimos la instancia del modelo
+    private final Model miModel;
 
-        /**
-         * Constructor. Inicializamos el controller
-         * Creamos los observadores que necesitamos
-         * @param miModel
-         */
-        public Controller(Model miModel){
-            this.miModel = miModel;
+    /**
+     * Constructor. Inicializamos el controller
+     * Creamos los observadores que necesitamos
+     *
+     * @param miModel
+     */
+    public Controller(Model miModel) {
+        this.miModel = miModel;
 
-            // instanciamos al observador de la velocidad
-            ObsVelocidad observoVelocidad = new ObsVelocidad();
-            miModel.addObserver(observoVelocidad);
+        // instanciamos al observador de la velocidad
+        ObsVelocidad observoVelocidad = new ObsVelocidad();
+        miModel.addObserver(observoVelocidad);
 
-            // instanciamos un segundo observador para el límite de velocidad
-            ObserverLimite observoLimite = new ObserverLimite();
-            miModel.addObserver(observoLimite);
-        }
+        // instanciamos un segundo observador para el límite de velocidad
+        ObserverLimite observoLimite = new ObserverLimite();
+        miModel.addObserver(observoLimite);
+    }
 
     /**
      * Crea un coche
-     * @param nombre del coche
+     *
+     * @param nombre    del coche
      * @param matricula del coche
      */
-    public void crearCoche(String nombre, String matricula){
+    public void crearCoche(String nombre, String matricula) {
         miModel.crearCoche(nombre, matricula);
     }
 
     /**
      * Cambia la velocidad de un coche
+     *
      * @param matricula del coche
      * @param velocidad nueva
      */
-    public void cambiarVelocidad(String matricula, Integer velocidad){
+    public void cambiarVelocidad(String matricula, Integer velocidad) {
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 
-
-
-
-
+    /**
+     * Busca la matrícula de un coche
+     *
+     * @param matricula del coche
+     * @return el Coche al que pertenece la matrícula o null en caso de que  no exista ese coche;
+     */
+    //crear método para buscar porMatrícula
+    public Coche buscarPorMatricula(String matricula) {
+        Coche coche = Model.getCoche(matricula);
+        if (coche != null) {
+            miModel.notifyObservers(coche);
+        }
+        return coche;
     }
+}
+
+
+
+
