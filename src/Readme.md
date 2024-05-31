@@ -14,7 +14,7 @@ En esta tarea, se realizaron las siguientes actividades para mejorar el proyecto
 
 4. Cierre del issue 6  (commit close #6)
 
-![referencesingletone.png](img/referencesingletone.png)
+![reference singletone](img/referencesingletone.png)
 
 
 6. Creación de un método para buscar coche en Controller.
@@ -23,6 +23,11 @@ En esta tarea, se realizaron las siguientes actividades para mejorar el proyecto
 
 8. Cierre del issue 7  (commit close #7)
 
-![closeissue7.png](img/closeissue7.png)
+![close issue7](img/closeissue7.png)
+
+8. Creación del pull request
+
+![Pull Request](img/pullrequest.png)
+
 
 9. Documentación de los pasos seguidos en este README.
