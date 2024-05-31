@@ -1,24 +1,51 @@
-package cod.mvc;
+package com.cod.mvc.model;
+
+import com.cod.mvc.controller.ObsCoche;
+import com.cod.mvc.controller.Observer;
 
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements Observable {
+    private ObsCoche obsCoche;
 
     /**
      * Lista de coches en el parking
      */
     private static ArrayList<Coche> parking = new ArrayList<>();
 
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    /**
+     * Notifica a los observadores
+     * Se ejecutará el método update() de cada observador
+     *
+     * @param coche
+     */
+    @Override
+    public void notifyObservers(Coche coche) {
+        for (Observer observer : observers) {
+            observer.update(coche);
+        }
+    }
+
     /**
      * Crea un coche y lo añade al parking
      *
      * @param matricula Matrícula del coche
      * @param modelo    Modelo del coche
-     * @param velocidad Velocidad del coche
      */
-    public static void crearCoche(String matricula, String modelo, int velocidad) {
-        Coche coche = new Coche(matricula, modelo, velocidad);
-        parking.add(coche);
+    public Coche crearCoche(String modelo, String matricula) {
+        Coche aux = Coche.getInstance(modelo, matricula);
+        parking.add(aux);
+        return aux;
     }
 
     /**
@@ -42,10 +69,12 @@ public class Model {
      * @param matricula Matrícula del coche
      * @param velocidad Nueva velocidad
      */
-    public static void cambiarVelocidad(String matricula, int velocidad) {
+    public void cambiarVelocidad(String matricula, int velocidad) {
         Coche coche = getCoche(matricula);
         if (coche != null) {
             coche.setVelocidad(velocidad);
+            notifyObservers(getCoche(matricula));
+
         }
     }
 
@@ -62,5 +91,14 @@ public class Model {
         }
         return -1;
     }
+    public void setObsCoche(ObsCoche obsCoche) {
+        this.obsCoche = obsCoche;
+    }
+    public void notifyObsCoche(Coche coche) {
+        if (obsCoche != null) {
+            obsCoche.update(coche);
+        }
+    }
+        }
 
-}
+
