@@ -1,5 +1,6 @@
 package com.cod.mvc.model;
 
+import com.cod.mvc.controller.ObsCoche;
 import com.cod.mvc.controller.Observer;
 
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class Model implements Observable {
      * @param matricula Matrícula del coche a buscar
      * @return Coche encontrado o null si no existe
      */
-    public static Coche getCoche(String matricula) {
+    public  static Coche getCoche(String matricula) {
         for (Coche coche : parking) {
             if (coche.getMatricula().equals(matricula)) {
                 return coche;
@@ -86,5 +87,11 @@ public class Model implements Observable {
         }
         return -1;
     }
-
+    public void notifyObsCoche(Coche coche) {
+        for (Observer observer : observers) {
+            if (observer instanceof ObsCoche) {
+                observer.update(coche);
+            }
+        }
+    }
 }
