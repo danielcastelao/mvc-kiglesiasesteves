@@ -1,18 +1,23 @@
 package com.cod.mvc.model;
 
 public class Coche {
-    public String matricula;
-    public String modelo;
-    public int velocidad;
+    private static Coche instance = null;
 
-public Coche(String modelo, String matricula) {
+    private String matricula;
+    private String modelo;
+    private int velocidad;
+
+    private Coche(String modelo, String matricula) {
         this.modelo = modelo;
         this.matricula = matricula;
         this.velocidad = 0;
     }
 
-    public Coche(String matricula, String modelo, int velocidad) {
-
+    public static Coche getInstance(String modelo, String matricula) {
+        if (instance == null) {
+            instance = new Coche(modelo, matricula);
+        }
+        return instance;
     }
 
     public String getMatricula() {
