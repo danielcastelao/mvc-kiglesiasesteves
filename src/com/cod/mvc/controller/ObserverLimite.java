@@ -16,7 +16,7 @@ public class ObserverLimite implements Observer {
      */
     @Override
     public void update(Coche coche) {
-        // verificamos veloidad máxima
+        // verificamos velocidad máxima
         if (coche.getVelocidad() > LIMITE) {
             int nuevaVelocidad = coche.getVelocidad() - 10;
             coche.setVelocidad(nuevaVelocidad);
