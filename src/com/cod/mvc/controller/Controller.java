@@ -21,7 +21,7 @@ public class Controller {
         ObsVelocidad observoVelocidad = new ObsVelocidad();
         miModel.addObserver(observoVelocidad);
         // instanciamos un segundo observador para el límite de velocidad
-        ObserverLimite observoLimite = new ObserverLimite();
+        ObsLimite observoLimite = new ObsLimite();
         miModel.addObserver(observoLimite);
 
         // instanciamos un tercer observador para buscar por matrícula

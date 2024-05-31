@@ -6,7 +6,7 @@ import com.cod.mvc.model.Coche;
  * La clase ObserverOtro implementa la interfaz Observer.
  * Esta clase se utiliza para observar cambios en los objetos Coche.
  */
-public class ObserverLimite implements Observer {
+public class ObsLimite implements Observer {
     final static int LIMITE = 120;
 
     /**

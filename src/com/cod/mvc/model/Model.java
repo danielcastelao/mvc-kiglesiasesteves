@@ -1,9 +1,7 @@
 package com.cod.mvc.model;
 
 import com.cod.mvc.controller.ObsCoche;
-import com.cod.mvc.controller.ObsVelocidad;
 import com.cod.mvc.controller.Observer;
-import com.cod.mvc.controller.ObserverLimite;
 
 import java.util.ArrayList;
 
