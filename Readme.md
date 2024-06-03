@@ -72,7 +72,7 @@ classDiagram
         +main(String[])
     }
 
-    interface Observer {
+    class Observer {
         +update(Coche)
     }
 
