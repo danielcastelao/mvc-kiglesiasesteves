@@ -97,34 +97,65 @@ Ejemplo básico del procedimiento, sin utilizar los nombres de los métodos
 
 ```mermaid
 sequenceDiagram
-    participant Model
+    participant App
     participant Controller
+    participant Model
+    participant ObsVelocidad
+    participant ObsLimite
+    participant ObsCoche
     participant View
+
+    App->>Controller: Inicia la aplicación
     Controller->>Model: Puedes crear un coche?
     activate Model
     Model-->>Controller: Creado!
     deactivate Model
-    Controller->>+View: Muestra la velocidad, porfa
-    activate View
-    View->>-View: Mostrando velocidad
-    View-->>Controller: Listo!
-    deactivate View
+
+    Model->>ObsVelocidad: Notificar cambio de velocidad
+    activate ObsVelocidad
+    ObsVelocidad->>+View: SubeVelocidad/BajaVelocidad
+    deactivate ObsVelocidad
+    View->>-View: Mostrando cambio de velocidad
+    View-->>ObsVelocidad: Listo!
+    
+    Model->>ObsLimite: Notificar cambio de velocidad
+    activate ObsLimite
+    ObsLimite->>+View: MuestraLímite
+    deactivate ObsLimite
+    View->>-View: Mostrando límite de velocidad
+    View-->>ObsLimite: Listo!
+    
+    Controller->>Model: Puedes cambiar la velocidad?
+    activate Model
+    Model-->>Controller: Velocidad cambiada!
+    deactivate Model
+
+    Model->>ObsCoche: Notificar cambio de coche
+    activate ObsCoche
+    ObsCoche->>+View: MuestraCoche
+    deactivate ObsCoche
+    View->>-View: Mostrando coche
+    View-->>ObsCoche: Listo!
+
 ```
 
 El mismo diagrama con los nombres de los métodos
 
 ```mermaid
 sequenceDiagram
-    participant Model
     participant Controller
+    participant Model
     participant View
+
     Controller->>Model: crearCoche("Mercedes", "BXK 1234")
     activate Model
     Model-->>Controller: Coche
     deactivate Model
+    
     Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
     activate View
-    View->>-View: System.out.println()
+    View->>-View: System.out.println("La velocidad del coche con BXK 1234 es " + velocidad)
     View-->>Controller: boolean
     deactivate View
+
 ```
