@@ -22,22 +22,70 @@ classDiagram
         String: matricula
         String: modelo
         Integer: velocidad
+        Integer: previousVelocidad
+        +getMatricula()
+        +getModelo()
+        +getVelocidad()
+        +getPreviousVelocidad()
     }
-      class Controller{
-          +main()
-      }
-      class View {+muestraVelocidad(String, Integer)}
-      class Model {
-          ArrayList~Coche~: parking
-          +crearCoche(String, String, String)
-          +getCoche(String)
-          +cambiarVelocidad(String, Integer)
-          +getVelocidad(String)
-      }
+
+    class Model {
+        ArrayList~Coche~: parking
+        +crearCoche(String, String)
+        +getCoche(String): Coche
+        +cambiarVelocidad(String, Integer)
+        +getVelocidad(String): Integer
+        +addObserver(Observer)
+        +notifyObservers()
+        +setObsCoche(Observer)
+        +notifyObsCoche(Coche)
+    }
+
+    class View {
+        +muestraVelocidad(String, Integer)
+        +muestraTodosDatos(Coche)
+        +subeVelocidad(String, Integer, Integer)
+        +bajaVelocidad(String, Integer, Integer)
+    }
+
+    class ObsVelocidad {
+        +update(Coche)
+    }
+
+    class ObsLimite {
+        +update(Coche)
+    }
+
+    class ObsCoche {
+        +update(Coche)
+    }
+
+    class Controller {
+        -Model: miModel
+        +Controller(Model)
+        +crearCoche(String, String)
+        +cambiarVelocidad(String, Integer)
+        +buscarPorMatricula(String): Coche
+    }
+
+    class App {
+        +main(String[])
+    }
+
+    interface Observer {
+        +update(Coche)
+    }
+
+    Model "1" *-- "1..n" Coche : association
+    Model "1" *-- "1" ObsCoche : association
+    Model "1" *-- "1..n" Observer : association
+    ObsVelocidad ..|> Observer : implements
+    ObsLimite ..|> Observer : implements
+    ObsCoche ..|> Observer : implements
     Controller "1" *-- "1" Model : association
     Controller "1" *-- "1" View : association
-    Model "1" *-- "1..n" Coche : association
-      
+  
+
 ```
 
 ---
