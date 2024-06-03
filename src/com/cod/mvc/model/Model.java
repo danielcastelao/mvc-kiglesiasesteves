@@ -99,6 +99,37 @@ public class Model implements Observable {
             obsCoche.update(coche);
         }
     }
+    /**
+     * Aumenta la velocidad del coche identificado por la matrícula en 'v' unidades.
+     * Notifica a los observadores del cambio en la velocidad.
+     * @param matricula identificador del coche.
+     * @param v unidades a aumentar la velocidad.
+     */
+    public void subirVelocidad(String matricula, Integer v) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.setPreviousVelocidad(coche.getVelocidad());
+            coche.setVelocidad(coche.getVelocidad() + v);
+            notifyObservers(coche);
         }
+    }
+
+    /**
+     * Disminuye la velocidad del coche identificado por la matrícula en 'v' unidades.
+     * Notifica a los observadores del cambio en la velocidad.
+     * @param matricula identificador del coche.
+     * @param v unidades a disminuir la velocidad.
+     */
+    public void bajarVelocidad(String matricula, Integer v) {
+        Coche coche = getCoche(matricula);
+        if (coche != null && coche.getVelocidad() >= v) {
+            coche.setPreviousVelocidad(coche.getVelocidad());
+            coche.setVelocidad(coche.getVelocidad() - v);
+            notifyObservers(coche);
+        }
+    }
+
+
+}
 
 
