@@ -14,9 +14,17 @@ public class ObsVelocidad  implements Observer {
      */
     @Override
     public void update(Coche arg) {
-        System.out.println("[ObserverVelocidad] Se ha cambiado la velocidad: " + arg.getVelocidad() + "km/hr");
+        if (sube(arg)) {
+View.subeVelocidad(arg.getMatricula(), arg.getVelocidad(), arg.getPreviousVelocidad());        }
+        else {
+
+View.bajaVelocidad(arg.getMatricula(), arg.getVelocidad(), arg.getPreviousVelocidad());        }
         // le comunicamos a la vista que muestre la velocidad
         View.muestraVelocidad(arg.getMatricula(), arg.getVelocidad());
 
+    }
+
+    private static boolean sube(Coche arg) {
+        return arg.getVelocidad() > arg.getPreviousVelocidad();
     }
 }
