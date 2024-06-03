@@ -17,6 +17,28 @@ class ModelTest {
     }
 
     @Test
+    public void testSubirVelocidad() {
+        Model model = new Model();
+        Coche coche = model.crearCoche("Mercedes", "BXK 1234");
+        coche.setVelocidad(50);
+
+        model.subirVelocidad(coche.getMatricula(), 20);
+
+        assertEquals(70, coche.getVelocidad());
+    }
+
+    @Test
+    public void testBajarVelocidad() {
+        Model model = new Model();
+        Coche coche = model.crearCoche("Mercedes", "BXK 1234");
+        coche.setVelocidad(50);
+
+        model.bajarVelocidad(coche.getMatricula(), 30);
+
+        assertEquals(20, coche.getVelocidad());
+    }
+
+    @Test
     public void testGetCoche() {
         model.crearCoche("Modelo1", "1234ABC");
         Coche coche = Model.getCoche("1234ABC");
