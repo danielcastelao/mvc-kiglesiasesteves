@@ -21,4 +21,10 @@ public class View {
         System.out.println("Modelo: " + coche.getModelo());
         System.out.println("Velocidad: " + coche.getVelocidad());
     }
+    public static void subeVelocidad(String matricula, int velocidad, int previousVelocidad){
+        System.out.println("[ObserverVelocidad] Se ha aumentado la velocidad del coche "+matricula+ " en: " + (velocidad - previousVelocidad)+ "km/hr");
+    }
+    public static void bajaVelocidad(String matricula, int velocidad, int previousVelocidad){
+        System.out.println( "[ObserverVelocidad] Se ha aumentado la velocidad del coche "+matricula+ " en: " + (velocidad- previousVelocidad) + "km/hr");
+    }
 }
