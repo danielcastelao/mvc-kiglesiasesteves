@@ -84,7 +84,8 @@ classDiagram
     ObsCoche ..|> Observer : implements
     Controller "1" *-- "1" Model : association
     Controller "1" *-- "1" View : association
-  
+    App "1" *-- "1" Controller : association
+
 
 ```
 
