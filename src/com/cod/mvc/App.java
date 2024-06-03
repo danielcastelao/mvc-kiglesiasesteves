@@ -22,6 +22,8 @@ public class App {
 
         // Cambiar la velocidad de un coche
         miController.cambiarVelocidad("SBC 1234", 30);
+        miController.cambiarVelocidad("SBC 1234", 50);
+
 
 
 
