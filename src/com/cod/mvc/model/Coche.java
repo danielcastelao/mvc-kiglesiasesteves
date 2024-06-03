@@ -5,7 +5,18 @@ public class Coche {
     private String matricula;
     private String modelo;
     private int velocidad;
-//Declaramos constructor
+
+    private int previousVelocidad;
+
+    public int getPreviousVelocidad() {
+        return previousVelocidad;
+    }
+
+    public void setPreviousVelocidad(int previousVelocidad) {
+        this.previousVelocidad = previousVelocidad;
+    }
+
+    //Declaramos constructor
     private Coche(String modelo, String matricula) {
         this.modelo = modelo;
         this.matricula = matricula;
